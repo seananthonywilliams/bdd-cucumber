@@ -23,10 +23,12 @@ Background: movies have been added to database
 
 Scenario: restrict to movies with 'PG' or 'R' ratings
 
-  When I check "PG"
-  And I check "R"
-  And I uncheck "G"
-  And I uncheck "PG-13"
+  #When I check "PG"
+  #And I check "R"
+  When I check the following ratings: PG, R
+  #And I uncheck "G"
+  #And I uncheck "PG-13"
+  And I uncheck the following ratings: G, PG-13
   And I press "Refresh"
   Then I should see "The Incredibles"
   And I should see "Raiders of the Lost Ark"
@@ -35,4 +37,6 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   And I should see "Amelie"
 
 Scenario: all ratings selected
-  # see assignment
+  When I check the following ratings: G, PG, PG-13, R
+  And I press "Refresh"
+  Then I should see all the movies
