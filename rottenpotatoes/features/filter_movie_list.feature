@@ -23,21 +23,16 @@ Background: movies have been added to database
 
 Scenario: restrict to movies with 'PG' or 'R' ratings
 
-  # enter step(s) to check the 'PG' and 'R' checkboxes
-  When I check 'PG'
-  And I check 'R'
-  # enter step(s) to uncheck all other checkboxes
-  And I uncheck 'G'
-  And I uncheck 'PG-13'
-  # enter step to "submit" the search form on the homepage
-  And I press 'Refresh'
-  # enter step(s) to ensure that PG and R movies are visible
-  Then I should see 'The Incredibles'
-  And I should see 'Raiders of the Lost Ark'
-  And I should see 'The Terminator'
-  And I should see 'When Harry Met Sally'
-  And I should see 'Amelie'
-  # enter step(s) to ensure that other movies are not visible
+  When I check "PG"
+  And I check "R"
+  And I uncheck "G"
+  And I uncheck "PG-13"
+  And I press "Refresh"
+  Then I should see "The Incredibles"
+  And I should see "Raiders of the Lost Ark"
+  And I should see "The Terminator"
+  And I should see "When Harry Met Sally"
+  And I should see "Amelie"
 
 Scenario: all ratings selected
   # see assignment

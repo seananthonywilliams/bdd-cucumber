@@ -86,16 +86,12 @@ When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
   select(value, :from => field)
 end
 
-When /^I check 'PG'$/ do
-  check('ratings_PG')
-end
-
 When /^(?:|I )check "([^"]*)"$/ do |field|
-  check(field)
+  check('ratings_' + field)
 end
 
 When /^(?:|I )uncheck "([^"]*)"$/ do |field|
-  uncheck(field)
+  uncheck('ratings_' + field)
 end
 
 When /^(?:|I )choose "([^"]*)"$/ do |field|
